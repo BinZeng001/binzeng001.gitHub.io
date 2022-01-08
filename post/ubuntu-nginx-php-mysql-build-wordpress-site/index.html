@@ -1,0 +1,446 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ubuntu20.04+Nginx+PHP 7.4+MySQL搭建WordPress | Justin写字的地方</title>
+<link rel="shortcut icon" href="https://blog.justwrite.top/favicon.ico?v=1641649476436">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
+<link rel="stylesheet" href="https://blog.justwrite.top/styles/main.css">
+<link rel="alternate" type="application/atom+xml" title="Ubuntu20.04+Nginx+PHP 7.4+MySQL搭建WordPress | Justin写字的地方 - Atom Feed" href="https://blog.justwrite.top/atom.xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
+
+
+
+    <meta name="description" content="最近看到腾讯云最近轻量应用服务器有活动，对新用户优惠力度比较大，遂花费38RMB买了一年的1核2G 50GB SSD轻量应用服务器练手，用于学习如何搭建WordPress网站。
+这份文档将以Ubuntu Server 20.04 LTS 6..." />
+    <meta name="keywords" content="Ubuntu,WordPress" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
+    <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://blog.justwrite.top">
+  <img class="avatar" src="https://blog.justwrite.top/images/avatar.png?v=1641649476436" alt="">
+  </a>
+  <h1 class="site-title">
+    Justin写字的地方
+  </h1>
+  <p class="site-description">
+    小贾的个人博客网站
+  </p>
+  <div class="menu-container">
+    
+      
+        <a href="/" class="menu">
+          首页
+        </a>
+      
+    
+      
+        <a href="/archives" class="menu">
+          归档
+        </a>
+      
+    
+      
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
+  </div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/BinZeng001" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              Ubuntu20.04+Nginx+PHP 7.4+MySQL搭建WordPress
+            </h2>
+            <div class="post-info">
+              <span>
+                2022-01-02
+              </span>
+              <span>
+                9 min read
+              </span>
+              
+                <a href="https://blog.justwrite.top/tag/ubuntu/" class="post-tag">
+                  # Ubuntu
+                </a>
+              
+                <a href="https://blog.justwrite.top/tag/wordpress/" class="post-tag">
+                  # WordPress
+                </a>
+              
+            </div>
+            
+              <img class="post-feature-image" src="https://justwrite.top/wp-content/uploads/2022/01/wordpress-e1641513628190.jpg" alt="">
+            
+            <div class="post-content-wrapper">
+              <div class="post-content">
+                <p>最近看到腾讯云最近轻量应用服务器有活动，对新用户优惠力度比较大，遂花费38RMB买了一年的1核2G 50GB SSD轻量应用服务器练手，用于学习如何搭建WordPress网站。</p>
+<p>这份文档将以Ubuntu Server 20.04 LTS 64bit操作系统为例，介绍如何从零开始搭建WordPress。</p>
+<p>注： 腾讯云使用 Ubuntu 镜像创建的实例默认禁用 root 用户名通过密码的方式登录实例，可参考<a href="https://cloud.tencent.com/document/product/1207/44569#ubuntu-.E7.B3.BB.E7.BB.9F.E5.A6.82.E4.BD.95.E4.BD.BF.E7.94.A8-root-.E7.94.A8.E6.88.B7.E7.99.BB.E5.BD.95.E5.AE.9E.E4.BE.8B.EF.BC.9F">腾讯云官方教程</a>启用。</p>
+<h2 id="准备工作">准备工作</h2>
+<ul>
+<li>Ubuntu 20.04</li>
+<li>远程连接工具（Windows系统可用<a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>；macOS系统直接用系统自带的终端app即可。）</li>
+</ul>
+<hr>
+<h2 id="安装nginx">安装Nginx</h2>
+<p>执行以下命令安装Nginx：</p>
+<pre><code>apt install nginx
+</code></pre>
+<p>上述命令执行完毕后，浏览器访问你的服务器公网ip；若显示以下内容则证明安装成功：</p>
+<pre><code>Welcome to nginx!
+
+If you see this page, the nginx web server is successfully installed and working. Further configuration is required.
+
+For online documentation and support please refer to nginx.org.
+Commercial support is available at nginx.com.
+
+Thank you for using nginx.
+</code></pre>
+<p>注：如果发现访问超时，请确保防火墙80端口已打开。</p>
+<hr>
+<h2 id="安装php及其扩展">安装PHP及其扩展</h2>
+<p>执行以下命令安装PHP及其扩展：</p>
+<pre><code>apt install php-fpm php-mysql
+</code></pre>
+<hr>
+<h2 id="安装mysql">安装MySQL</h2>
+<ol>
+<li>执行下面的命令安装 MySQL：</li>
+</ol>
+<pre><code>apt install mysql-server
+</code></pre>
+<ol start="2">
+<li>安装完成后，接着执行：</li>
+</ol>
+<pre><code>mysql_secure_installation
+</code></pre>
+<p>如果显示：</p>
+<pre><code>Securing the MySQL server deployment.
+
+Enter password for user root:
+</code></pre>
+<p>如果在安装的时候设置过 root的密码，则输入密码后再按 Enter键，否则直接按 Enter键跳过即可。<br>
+3. 接着安装程序将会询问是否需要设置验证密码组件：</p>
+<pre><code>VALIDATE PASSWORD COMPONENT can be used to test passwords
+and improve security. It checks the strength of password
+and allows the users to set only those passwords which are
+secure enough. Would you like to setup VALIDATE PASSWORD component?
+
+Press y|Y for Yes, any other key for No:
+</code></pre>
+<ol start="4">
+<li>输入 y 然后按下 Enter；随后需要设置密码强度校验政策。这里根据个人的密码强度选择输入对应数字后按回车键即可。随后根据提示设置好root密码。</li>
+</ol>
+<pre><code>There are three levels of password validation policy:
+
+LOW    Length &gt;= 8
+MEDIUM Length &gt;= 8, numeric, mixed case, and special characters
+STRONG Length &gt;= 8, numeric, mixed case, special characters and dictionary                  file
+
+Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG:
+</code></pre>
+<ol start="5">
+<li>接下来，输入 y 然后按下 Enter，删除匿名用户：</li>
+</ol>
+<pre><code>By default, a MySQL installation has an anonymous user,
+allowing anyone to log into MySQL without having to have
+a user account created for them. This is intended only for
+testing, and to make the installation go a bit smoother.
+You should remove them before moving into a production
+environment.
+
+Remove anonymous users? (Press y|Y for Yes, any other key for No) :
+</code></pre>
+<ol start="6">
+<li>继续输入 y 然后按下 Enter，禁止 root 远程登录：</li>
+</ol>
+<pre><code>Normally, root should only be allowed to connect from
+'localhost'. This ensures that someone cannot guess at
+the root password from the network.
+
+Disallow root login remotely? (Press y|Y for Yes, any other key for No) :
+</code></pre>
+<ol start="7">
+<li>再次输入 y 然后按下 Enter，删除测试数据库：</li>
+</ol>
+<pre><code>By default, MySQL comes with a database named 'test' that
+anyone can access. This is also intended only for testing,
+and should be removed before moving into a production
+environment.
+
+
+Remove test database and access to it? (Press y|Y for Yes, any other key for No) :
+</code></pre>
+<ol start="8">
+<li>输入 y 然后按下 Enter，立即重新加载权限：</li>
+</ol>
+<pre><code>Reloading the privilege tables will ensure that all changes
+made so far will take effect immediately.
+
+Reload privilege tables now? (Press y|Y for Yes, any other key for No) :
+</code></pre>
+<p>进行到这一步，数据库初始化设置完成。<br>
+9. 接下来，输入以下命令进入数据库：</p>
+<pre><code>mysql -uroot -p
+</code></pre>
+<ol start="10">
+<li>输入前面设置的 root 密码，然后按下 Enter。如果出现如下则证明成功进入数据库：</li>
+</ol>
+<pre><code>Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.0.23-0ubuntu0.20.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql&gt;
+</code></pre>
+<ol start="11">
+<li>接下来，输入下面的命令创建一个名为wordpress的数据库：</li>
+</ol>
+<pre><code>CREATE DATABASE IF NOT EXISTS wordpress DEFAULT CHARACTER SET = utf8mb4 DEFAULT COLLATE = utf8mb4_general_ci;
+</code></pre>
+<p>看到如下提示，则说明数据库创建成功：</p>
+<pre><code>Query OK, 1 row affected (0.12 sec)
+</code></pre>
+<ol start="12">
+<li>然后输入下面的命令创建一个数据库用户 wordpress 用来操作上面创建的 wordpress 数据库。你需要修改命令中的 {password} 为你自己的密码。</li>
+</ol>
+<pre><code>CREATE USER 'wordpress'@'localhost' IDENTIFIED BY '{password}';
+</code></pre>
+<ol start="13">
+<li>接下来，执行下面这条命令，授予用户 wordpress 拥有数据库 wordpress 的所有权限：</li>
+</ol>
+<pre><code>GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost' WITH GRANT OPTION;
+</code></pre>
+<ol start="14">
+<li>随后输入下面的命令刷新权限：</li>
+</ol>
+<pre><code>FLUSH PRIVILEGES;
+</code></pre>
+<ol start="15">
+<li>最后，退出数据库：</li>
+</ol>
+<pre><code>exit
+</code></pre>
+<hr>
+<h2 id="下载wordpress安装程序">下载WordPress安装程序</h2>
+<ol>
+<li>通过以下命令下载最新版的WordPress中文版安装程序到路径 /var/www 中，下载文件命名为 <strong>wordpress.tar.gz</strong>:</li>
+</ol>
+<pre><code>curl https://cn.wordpress.org/latest-zh_CN.tar.gz -o /var/www/wordpress.tar.gz
+</code></pre>
+<ol start="2">
+<li>进入 /var/www 文件夹：</li>
+</ol>
+<pre><code>cd /var/www
+</code></pre>
+<ol start="3">
+<li>解压前面下载的 wordpress.tar.gz 到当前文件夹中：</li>
+</ol>
+<pre><code>tar -zxvf wordpress.tar.gz
+</code></pre>
+<ol start="4">
+<li>修改文件夹用户组权限：</li>
+</ol>
+<pre><code>chown -R www-data:www-data /var/www/wordpress
+</code></pre>
+<hr>
+<h2 id="修改nginx配置文件">修改Nginx配置文件</h2>
+<p>接下来，需要修改Nginx配置文件。</p>
+<ol>
+<li>首先复制一份默认配置，并将下面命令中的 {domain} 更换为你自己的域名。</li>
+</ol>
+<pre><code>cp /etc/nginx/sites-available/default /etc/nginx/sites-available/{domain}.conf
+</code></pre>
+<ol start="2">
+<li>接着使用Vim编辑器打开配置文件进行修改：</li>
+</ol>
+<pre><code>vi /etc/nginx/sites-available/{domain}.conf
+</code></pre>
+<p>注：如果提示 <code>bash: vi: command not found.</code> 则先通过下面的命令安装Vim，安装完成后再执行前面的命令修改配置。</p>
+<pre><code>apt install vim
+</code></pre>
+<ol start="3">
+<li>执行<code>vi /etc/nginx/sites-available/{domain}.conf</code> 打开配置文件后，按下键盘的<code>i</code>键进入编辑状态，将配置修改成如下，修改好后按<code>Esc</code>退出编辑状态，最后按下<code>:wq</code>保存修改并关闭配置文件。</li>
+</ol>
+<pre><code>server {
+  listen 80;
+  listen [::]:80;
+ 
+  root /var/www/wordpress;
+  index index.php;
+ 
+  server_name {you-domain};
+ 
+  location / {
+    try_files $uri $uri/ =404;
+  }
+ 
+  location ~ \.php$ {
+    include snippets/fastcgi-php.conf;
+    fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+  }
+}
+</code></pre>
+<p>注：如果没有使用域名，则无需修改配置文件内的 server_name 字段。其中配置文件内 fastcgi_pass 这一项中的 php7.4-fpm.sock 对应的是php-fpm版本。</p>
+<p>本文安装的是 PHP 7.4，在修改配置时请记得替换成你们安装的版本。如果不确定自己安装的PHP是什么版本，可通过 php -v 命令查看服务器安装的对应PHP版本。</p>
+<ol start="4">
+<li>接下来，删除正在使用的默认配置：</li>
+</ol>
+<pre><code>rm /etc/nginx/sites-enabled/default
+</code></pre>
+<ol start="5">
+<li>然后将修改好的配置加入到正在使用的配置中：</li>
+</ol>
+<pre><code>ln -s /etc/nginx/sites-available/{domain}.conf /etc/nginx/sites-enabled/
+</code></pre>
+<ol start="6">
+<li>测试配置是否正确：</li>
+</ol>
+<pre><code>nginx -t
+</code></pre>
+<p>如果出现如下信息则代表配置成功：</p>
+<pre><code>nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+</code></pre>
+<ol start="7">
+<li>重载配置以生效：</li>
+</ol>
+<pre><code>nginx -s reload
+</code></pre>
+<h2 id="浏览器引导安装wordpress">浏览器引导安装WordPress</h2>
+<p>以上所有步骤执行完毕后，回到浏览器访问服务器公网ip，将会看到WordPress欢迎页面。点击“下方现在就开始！”按钮继续。<br>
+<img src="https://justwrite.top/wp-content/uploads/2022/01/WordPress-setup-config.php_.png" alt="wordpress setup config" width="600" height="451" loading="lazy"><br>
+在下一个界面中，将用户名修改为<strong>wordpress</strong>，密码一栏填入刚才设置的数据库密码，然后点击提交即可。</p>
+<p>随后，你将会看到WordPress成功安装的页面：<br>
+<img src="https://justwrite.top/wp-content/uploads/2022/01/WordPress%E6%88%90%E5%8A%9F%E5%AE%89%E8%A3%85.png" alt="wordpress installation complete" width="600" height="337" loading="lazy"></p>
+<hr>
+<blockquote>
+<h2 id="小尾巴~">小尾巴~</h2>
+<p>这份文档并非凭我一己之力完成；在发布此文档前，本人参考了网上许多建站教程，发现对小白用户来说都不是很友好，操作过程中也踩了不少坑。<br>
+在此，我想感谢公司帅气又nice的Nico对此教程的细致反馈与审阅。如果没有他的帮助，就不会有这篇文章的存在。</p>
+</blockquote>
+
+              </div>
+              <div class="toc-container">
+                <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C">准备工作</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85nginx">安装Nginx</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85php%E5%8F%8A%E5%85%B6%E6%89%A9%E5%B1%95">安装PHP及其扩展</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85mysql">安装MySQL</a></li>
+<li><a href="#%E4%B8%8B%E8%BD%BDwordpress%E5%AE%89%E8%A3%85%E7%A8%8B%E5%BA%8F">下载WordPress安装程序</a></li>
+<li><a href="#%E4%BF%AE%E6%94%B9nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">修改Nginx配置文件</a></li>
+<li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%95%E5%AF%BC%E5%AE%89%E8%A3%85wordpress">浏览器引导安装WordPress</a></li>
+<li><a href="#%E5%B0%8F%E5%B0%BE%E5%B7%B4~">小尾巴~</a></li>
+</ul>
+</li>
+</ul>
+
+              </div>
+            </div>
+          </article>
+        </div>
+
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://blog.justwrite.top/post/broken-thoughts-after-playing-to-the-moon/">
+              <h3 class="post-title">
+                For River, To The Moon —— 《去月球》玩后感
+              </h3>
+            </a>
+          </div>
+        
+
+        
+
+        <div class="site-footer">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+  <a class="rss" href="https://blog.justwrite.top/atom.xml" target="_blank">
+    <i class="ri-rss-line"></i> RSS
+  </a>
+</div>
+
+      </div>
+    </div>
+
+    <script>
+      hljs.initHighlightingOnLoad()
+
+      let mainNavLinks = document.querySelectorAll(".markdownIt-TOC a");
+
+      // This should probably be throttled.
+      // Especially because it triggers during smooth scrolling.
+      // https://lodash.com/docs/4.17.10#throttle
+      // You could do like...
+      // window.addEventListener("scroll", () => {
+      //    _.throttle(doThatStuff, 100);
+      // });
+      // Only not doing it here to keep this Pen dependency-free.
+
+      window.addEventListener("scroll", event => {
+        let fromTop = window.scrollY;
+
+        mainNavLinks.forEach((link, index) => {
+          let section = document.getElementById(decodeURI(link.hash).substring(1));
+          let nextSection = null
+          if (mainNavLinks[index + 1]) {
+            nextSection = document.getElementById(decodeURI(mainNavLinks[index + 1].hash).substring(1));
+          }
+          if (section.offsetTop <= fromTop) {
+            if (nextSection) {
+              if (nextSection.offsetTop > fromTop) {
+                link.classList.add("current");
+              } else {
+                link.classList.remove("current");    
+              }
+            } else {
+              link.classList.add("current");
+            }
+          } else {
+            link.classList.remove("current");
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>
