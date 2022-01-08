@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.justwrite.top</id>
     <title>Justin写字的地方</title>
-    <updated>2022-01-08T13:49:10.752Z</updated>
+    <updated>2022-01-08T13:53:03.503Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.justwrite.top"/>
     <link rel="self" href="https://blog.justwrite.top/atom.xml"/>
@@ -67,7 +67,7 @@
 <img src="https://justwrite.top/wp-content/uploads/2022/01/image-4.png" alt="Copy token" loading="lazy"></li>
 </ol>
 <hr>
-<h3 id="安装配置gridea">安装配置Gridea</h3>
+<h3 id="3-安装配置gridea">3. 安装配置Gridea</h3>
 <ol>
 <li>前往<a href="https://gridea.dev/#started">Gridea官网</a>下载适用于你电脑操作系统的 Gridea 安装包。<br>
 <img src="https://justwrite.top/wp-content/uploads/2022/01/image-6.png" alt="Choose your OS to download Gridea" loading="lazy"></li>
@@ -93,7 +93,7 @@
 <p>接下来，你就可以在浏览器上输入前面步骤配置好的域名（e.g. https://bingzeng001.github.io）访问你的网站了。<br>
 <img src="https://justwrite.top/wp-content/uploads/2022/01/image-8-2048x1549.png" alt="Gridea静态网站初步搭建完成" loading="lazy"></p>
 <hr>
-<h3 id="配置自定义域名非必要步骤">配置自定义域名（非必要步骤）</h3>
+<h3 id="4-配置自定义域名非必要步骤">4. 配置自定义域名（非必要步骤）</h3>
 <p>如果你已经有注册自己的域名，那么你可以在 GitHub Pages 设置中配置自定义域名，并免费启用 HTTPS 。具体操作步骤如下：</p>
 <ol>
 <li>前往你的域名提供商网站后台，在 DNS 解析里新增一条类别为 CNAME 的解析记录。举个栗子，我选择使用子域名 blog.justwrite.top 这个子域名来访问这个 GitHub pages，那么我只需要通过 CNAME 的方式指向我前面创建的 GitHub pages 域名 binzeng001.github.io即可：<br>
