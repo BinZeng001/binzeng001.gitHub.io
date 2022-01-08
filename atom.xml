@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.justwrite.top</id>
-    <title>Gridea</title>
-    <updated>2022-01-08T03:36:00.247Z</updated>
+    <title>Justin写字的地方</title>
+    <updated>2022-01-08T03:52:35.084Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.justwrite.top"/>
     <link rel="self" href="https://blog.justwrite.top/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>小贾的个人博客网站</subtitle>
     <logo>https://blog.justwrite.top/images/avatar.png</logo>
     <icon>https://blog.justwrite.top/favicon.ico</icon>
-    <rights>All rights reserved 2022, Gridea</rights>
+    <rights>All rights reserved 2022, Justin写字的地方</rights>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://blog.justwrite.top/post/hello-gridea/</id>
