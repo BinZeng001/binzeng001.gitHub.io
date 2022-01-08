@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.justwrite.top</id>
     <title>Justin写字的地方</title>
-    <updated>2022-01-08T04:21:16.922Z</updated>
+    <updated>2022-01-08T06:00:23.702Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.justwrite.top"/>
     <link rel="self" href="https://blog.justwrite.top/atom.xml"/>
@@ -10,17 +10,6 @@
     <logo>https://blog.justwrite.top/images/avatar.png</logo>
     <icon>https://blog.justwrite.top/favicon.ico</icon>
     <rights>All rights reserved 2022, Justin写字的地方</rights>
-    <entry>
-        <title type="html"><![CDATA[测试文档]]></title>
-        <id>https://blog.justwrite.top/post/test/</id>
-        <link href="https://blog.justwrite.top/post/test/">
-        </link>
-        <updated>2022-01-08T04:19:02.000Z</updated>
-        <content type="html"><![CDATA[<p>这是一份测试文档</p>
-<h2 id="二级标题">二级标题</h2>
-<p>这是一段测试文本。这是一段测试文本。这是一段测试文本。这是一段测试文本。这是一段测试文本。这是一段测试文本。</p>
-]]></content>
-    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://blog.justwrite.top/post/hello-gridea/</id>
