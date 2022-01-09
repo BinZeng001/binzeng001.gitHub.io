@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://localhost:4000</id>
+    <id>https://blog.justwrite.top</id>
     <title>Justin写字的地方</title>
-    <updated>2022-01-09T04:20:36.464Z</updated>
+    <updated>2022-01-09T04:24:56.393Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://localhost:4000"/>
-    <link rel="self" href="http://localhost:4000/atom.xml"/>
+    <link rel="alternate" href="https://blog.justwrite.top"/>
+    <link rel="self" href="https://blog.justwrite.top/atom.xml"/>
     <subtitle>小贾的个人博客网站</subtitle>
-    <logo>http://localhost:4000/images/avatar.png</logo>
-    <icon>http://localhost:4000/favicon.ico</icon>
+    <logo>https://blog.justwrite.top/images/avatar.png</logo>
+    <icon>https://blog.justwrite.top/favicon.ico</icon>
     <rights>All rights reserved 2022, Justin写字的地方</rights>
     <entry>
         <title type="html"><![CDATA[[教程] GitHub Pages+Gridea搭建静态博客网站]]></title>
-        <id>http://localhost:4000/post/github-pages-gridea-guide/</id>
-        <link href="http://localhost:4000/post/github-pages-gridea-guide/">
+        <id>https://blog.justwrite.top/post/github-pages-gridea-guide/</id>
+        <link href="https://blog.justwrite.top/post/github-pages-gridea-guide/">
         </link>
         <updated>2022-01-08T12:40:44.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
@@ -119,8 +119,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Ubuntu20.04+Nginx+PHP 7.4+MySQL搭建WordPress]]></title>
-        <id>http://localhost:4000/post/ubuntu-nginx-php-mysql-build-wordpress-site/</id>
-        <link href="http://localhost:4000/post/ubuntu-nginx-php-mysql-build-wordpress-site/">
+        <id>https://blog.justwrite.top/post/ubuntu-nginx-php-mysql-build-wordpress-site/</id>
+        <link href="https://blog.justwrite.top/post/ubuntu-nginx-php-mysql-build-wordpress-site/">
         </link>
         <updated>2022-01-02T11:48:40.000Z</updated>
         <content type="html"><![CDATA[<p>最近看到腾讯云最近轻量应用服务器有活动，对新用户优惠力度比较大，遂花费38RMB买了一年的1核2G 50GB SSD轻量应用服务器练手，用于学习如何搭建WordPress网站。</p>
@@ -380,8 +380,8 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
     </entry>
     <entry>
         <title type="html"><![CDATA[For River, To The Moon —— 《去月球》玩后感]]></title>
-        <id>http://localhost:4000/post/broken-thoughts-after-playing-to-the-moon/</id>
-        <link href="http://localhost:4000/post/broken-thoughts-after-playing-to-the-moon/">
+        <id>https://blog.justwrite.top/post/broken-thoughts-after-playing-to-the-moon/</id>
+        <link href="https://blog.justwrite.top/post/broken-thoughts-after-playing-to-the-moon/">
         </link>
         <updated>2021-03-31T11:32:26.000Z</updated>
         <content type="html"><![CDATA[<p>我花了大概四小时通关《去月球》这款与众不同的游戏。如果要我在不剧透的前提下用一句简短的话描述这个游戏，那就是：</p>
@@ -398,41 +398,9 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>http://localhost:4000/post/hello-gridea/</id>
-        <link href="http://localhost:4000/post/hello-gridea/">
-        </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
-]]></content>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[破碎故事之心 - 试译]]></title>
-        <id>http://localhost:4000/post/the-heart-of-a-broken-story-chinese-translation/</id>
-        <link href="http://localhost:4000/post/the-heart-of-a-broken-story-chinese-translation/">
+        <id>https://blog.justwrite.top/post/the-heart-of-a-broken-story-chinese-translation/</id>
+        <link href="https://blog.justwrite.top/post/the-heart-of-a-broken-story-chinese-translation/">
         </link>
         <updated>2017-06-04T10:59:02.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
