@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://localhost:4000</id>
+    <id>https://blog.justwrite.top</id>
     <title>Justin写字的地方</title>
-    <updated>2022-01-09T04:49:19.512Z</updated>
+    <updated>2022-01-09T06:31:22.725Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://localhost:4000"/>
-    <link rel="self" href="http://localhost:4000/atom.xml"/>
+    <link rel="alternate" href="https://blog.justwrite.top"/>
+    <link rel="self" href="https://blog.justwrite.top/atom.xml"/>
     <subtitle>小贾的个人博客网站</subtitle>
-    <logo>http://localhost:4000/images/avatar.png</logo>
-    <icon>http://localhost:4000/favicon.ico</icon>
+    <logo>https://blog.justwrite.top/images/avatar.png</logo>
+    <icon>https://blog.justwrite.top/favicon.ico</icon>
     <rights>All rights reserved 2022, Justin写字的地方</rights>
     <entry>
         <title type="html"><![CDATA[[教程] GitHub Pages+Gridea搭建静态博客网站]]></title>
-        <id>http://localhost:4000/post/github-pages-gridea-guide/</id>
-        <link href="http://localhost:4000/post/github-pages-gridea-guide/">
+        <id>https://blog.justwrite.top/post/github-pages-gridea-guide/</id>
+        <link href="https://blog.justwrite.top/post/github-pages-gridea-guide/">
         </link>
         <updated>2022-01-08T12:40:44.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
@@ -119,8 +119,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Ubuntu20.04+Nginx+PHP 7.4+MySQL搭建WordPress]]></title>
-        <id>http://localhost:4000/post/ubuntu-nginx-php-mysql-build-wordpress-site/</id>
-        <link href="http://localhost:4000/post/ubuntu-nginx-php-mysql-build-wordpress-site/">
+        <id>https://blog.justwrite.top/post/ubuntu-nginx-php-mysql-build-wordpress-site/</id>
+        <link href="https://blog.justwrite.top/post/ubuntu-nginx-php-mysql-build-wordpress-site/">
         </link>
         <updated>2022-01-02T11:48:40.000Z</updated>
         <content type="html"><![CDATA[<p>最近看到腾讯云最近轻量应用服务器有活动，对新用户优惠力度比较大，遂花费38RMB买了一年的1核2G 50GB SSD轻量应用服务器练手，用于学习如何搭建WordPress网站。</p>
@@ -380,8 +380,8 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
     </entry>
     <entry>
         <title type="html"><![CDATA[For River, To The Moon —— 《去月球》玩后感]]></title>
-        <id>http://localhost:4000/post/broken-thoughts-after-playing-to-the-moon/</id>
-        <link href="http://localhost:4000/post/broken-thoughts-after-playing-to-the-moon/">
+        <id>https://blog.justwrite.top/post/broken-thoughts-after-playing-to-the-moon/</id>
+        <link href="https://blog.justwrite.top/post/broken-thoughts-after-playing-to-the-moon/">
         </link>
         <updated>2021-03-31T11:32:26.000Z</updated>
         <content type="html"><![CDATA[<p>我花了大概四小时通关《去月球》这款与众不同的游戏。如果要我在不剧透的前提下用一句简短的话描述这个游戏，那就是：</p>
@@ -399,8 +399,8 @@ nginx: configuration file /etc/nginx/nginx.conf test is successful
     </entry>
     <entry>
         <title type="html"><![CDATA[破碎故事之心 - 试译]]></title>
-        <id>http://localhost:4000/post/the-heart-of-a-broken-story-chinese-translation/</id>
-        <link href="http://localhost:4000/post/the-heart-of-a-broken-story-chinese-translation/">
+        <id>https://blog.justwrite.top/post/the-heart-of-a-broken-story-chinese-translation/</id>
+        <link href="https://blog.justwrite.top/post/the-heart-of-a-broken-story-chinese-translation/">
         </link>
         <updated>2017-06-04T10:59:02.000Z</updated>
         <content type="html"><![CDATA[<blockquote>
